@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/bule"
+    android:orientation="vertical" >
+
+    <SurfaceView
+        android:id="@+id/videoView1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <com.geniatech.iptv.TVSubtitleView
+        android:id="@+id/subtitle_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="20dp"
+        android:gravity="center_horizontal"
+        android:textSize="30dp" />
+
+    <LinearLayout
+        android:id="@+id/show_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical" >
+
+        <ProgressBar
+            android:id="@+id/progressBar1"
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_horizontal"
+            android:text="Connecting to drm server..."
+            android:textColor="@color/white"
+            android:textSize="25dp" />
+    </LinearLayout>
+
+</RelativeLayout>

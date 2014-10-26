@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="660dp"
+    android:layout_height="500dp"
+    android:background="@drawable/panel_bg"
+    android:orientation="vertical" >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="34dp"
+        android:gravity="center_horizontal"
+        android:text="@string/dialog_title"
+        android:textSize="32sp" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="59dp" >
+
+        <Spinner
+            android:id="@+id/local_path_spi"
+            style="@style/spinner_style"
+            android:layout_width="568dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="45dp"
+            android:animationCache="true"
+            android:drawSelectorOnTop="true"
+            android:prompt="@string/local_url"
+            android:textSize="25sp" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignRight="@+id/local_path_spi"
+            android:layout_marginRight="12dp"
+            android:layout_marginTop="15dp"
+            android:contentDescription="@string/desc"
+            android:background="@drawable/tip_normal"
+            android:paddingLeft="15dp"
+            android:textSize="18sp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="26dp" >
+
+        <TextView
+            android:layout_width="568dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="60dp"
+            android:gravity="center_vertical"
+            android:hint="@string/udp_head"
+            android:textColor="@android:color/white"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/udp_path_edt"
+            android:layout_width="568dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="45dp"
+            android:background="@drawable/url_spinner"
+            android:hint=""
+            android:paddingLeft="70dp"
+            android:textColor="@android:color/white"
+            android:textSize="20sp" />
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/player_btn"
+        android:layout_width="568dp"
+        android:layout_height="53dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="28dp"
+        android:background="@drawable/start_player"
+        android:text="@string/start_player"
+        android:textColor="@android:color/white"
+        android:textSize="28sp" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="45dp"
+        android:layout_marginTop="30dp" >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignRight="@+id/audio_spi"
+            android:contentDescription="@string/desc"
+            android:layout_marginRight="12dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/tip_normal"
+            android:paddingLeft="15dp"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/audio_set"
+            android:layout_width="150dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="8dp"
+            android:layout_toRightOf="@+id/audio_spi"
+            android:background="@drawable/stream_set"
+            android:text="@string/audio_set"
+            android:textColor="@android:color/white"
+            android:textSize="20sp" />
+
+        <Spinner
+            android:id="@+id/audio_spi"
+            android:layout_width="410dp"
+            android:layout_height="40dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:animationCache="true"
+            android:background="@drawable/stream_spinner"
+            android:drawSelectorOnTop="true"
+            android:prompt="@string/audio_stream"
+            android:textSize="25sp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="45dp"
+        android:layout_marginTop="26dp"
+        android:orientation="horizontal" >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignRight="@+id/lang_spi"
+            android:layout_marginRight="12dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/tip_normal"
+            android:contentDescription="@string/desc"
+            android:paddingLeft="15dp"
+            android:textSize="18sp" />
+
+        <Spinner
+            android:id="@+id/lang_spi"
+            android:layout_width="410dp"
+            android:layout_height="40dp"
+            android:animationCache="true"
+            android:background="@drawable/stream_spinner"
+            android:drawSelectorOnTop="true"
+            android:prompt="@string/language"
+            android:textSize="25sp" />
+
+        <Button
+            android:id="@+id/lang_set"
+            android:layout_width="150dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="8dp"
+            android:layout_toRightOf="@+id/lang_spi"
+            android:background="@drawable/stream_set"
+            android:text="@string/lang_set"
+            android:textColor="@android:color/white"
+            android:textSize="20sp" />
+    </RelativeLayout>
+
+</LinearLayout>

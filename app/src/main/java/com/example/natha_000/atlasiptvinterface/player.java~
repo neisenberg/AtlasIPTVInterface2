@@ -1,0 +1,84 @@
+package tv;
+
+
+import android.app.Dialog;
+import android.graphics.Typeface;
+import android.widget.LinearLayout;
+import android.widget.VideoView;
+
+public class player {
+	public int audioIndex=0;
+	public int subtitleIndex=0;
+	static int VIDEO_HOLE = 257;
+	private Typeface textType;
+	private VideoView mVideoView = null;
+	private TVSubtitleView subtitleView;
+	private Dialog settingDialog;
+	private LinearLayout infoLayout;
+	private AudioStreamInfo[] audioList=null;
+	private SubtitleStreamInfo[] subtitleList=null;
+	private static final int SHOW_PANLE = 0X009;
+	private static final int SHOW_UDP_STATUS = 0X011;
+	private static native int jniDrmPlayerGetStatus(); // return 1:playing
+	private static native SubtitleStreamInfo[] jniDrmPlayerGetSubtitleInfo();
+	private static native AudioStreamInfo[] jniDrmPlayerGetAudioInfo();
+	//private static native int jniDrmPlayerGetVMServerStatus(); // return 1:connected
+	private static native int jniDrmPlayerSetAudio(int index);
+	private static native int jniDrmPlayerSetSubtitle(int index);
+	private static native int jniCreateDrmPlayer();
+	//private static native int jniDrmPlayerConfigVMServer(String serverIP, int serverPort, String storeFilePath);
+	private static native int jniDestroyDrmPlayer();
+	private static native int jniDrmPlayerStart(String url, boolean isSoftMode);
+	private static native int jniDrmPlayerStop();
+	private static int AudioStream = 0;
+	// Loading so file according to the following order
+	static {
+		System.loadLibrary("drmplayer_jni");
+	}
+	public player()
+	{
+		jniCreateDrmPlayer();
+	}
+	/////////////////////////////////////////////////////////
+	public void stop()
+	{
+		jniDrmPlayerStop();
+	}
+	/////////////////////////////////////////////////////////
+	public boolean isPlaying()
+	{
+		if(jniDrmPlayerGetStatus()==1)
+			return true;
+		else
+			return false;
+	}
+	/////////////////////////////////////////////////////////
+	public void play(String path)
+	{
+		jniDrmPlayerStart(path, true);
+	}
+	//////////////////////////////////////////////////////////
+	public void get_audio_list()
+	{
+		if(isPlaying())
+			audioList = jniDrmPlayerGetAudioInfo();
+	}
+	//////////////////////////////////////////////////////////
+	public void get_subtitle_list()
+	{
+		if(isPlaying())
+			subtitleList = jniDrmPlayerGetSubtitleInfo();
+	}
+	/////////////////////////////////////////////////////////
+	public void setAudioIndex(int index)
+	{
+		jniDrmPlayerSetAudio(index);
+		audioIndex=index;
+	}
+	/////////////////////////////////////////////////////////
+	public void setSubtitleIndex(int index)
+	{
+		jniDrmPlayerSetSubtitle(index);
+		audioIndex=index;
+	}
+}
